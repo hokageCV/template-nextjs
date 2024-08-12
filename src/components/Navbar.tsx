@@ -1,5 +1,6 @@
 'use client'
 import useAuthStore from '@/context/authStore'
+import { AuthService } from '@/db/db'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
@@ -10,6 +11,7 @@ export default function Navbar() {
   const logout = async () => {
     try {
       setIsLoggedIn(false)
+      await AuthService.logout()
       router.push('/')
     } catch (error: any) {
       console.log(error.message)

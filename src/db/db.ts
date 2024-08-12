@@ -1,7 +1,7 @@
-import mongoAuthService from './mongo/auth'
+import appwriteAuthService from './appwrite/auth'
 import mongoDbService from './mongo/db'
 
-export const AuthService = mongoAuthService
+export const AuthService = appwriteAuthService
 export const DbService = mongoDbService
 
 

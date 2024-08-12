@@ -1,5 +1,6 @@
 'use client'
 import useAuthStore from '@/context/authStore'
+import { AuthService } from '@/db/db'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
@@ -16,7 +17,7 @@ export default function Login() {
     setIsLoading(true)
 
     try {
-      const session = await appwriteAuthService.login(formData)
+      const session = await AuthService.login(formData)
 
       if (session) {
         setIsLoggedIn(true)
